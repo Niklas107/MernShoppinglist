@@ -9,10 +9,14 @@ import './App.css';
 import AppNavbar from './components/AppNavbar'
 import ShoppingList from './components/ShoppingList'
 import ItemModal from './components/ItemModal'
+import { loadUser } from './actions/authActions'
 
 
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(loadUser());
+  }
   render() {
     return (
       <Provider store={store}>
