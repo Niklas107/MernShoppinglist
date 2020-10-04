@@ -8,11 +8,12 @@ import itemRoutes from './routes/api/items';
 
 const app = express();
 
+const items = require('./routes/api/items')
 // Bodyparser Middleware
 app.use(bodyParser.json());
 
 // DB Config
-const db = `${MONGO_URI}/${MONGO_DB_NAME}`;
+const db = require('./config/keys').mongoURI;
 
 // Connect to Mongo
 mongoose
@@ -26,15 +27,19 @@ mongoose
 
 // Use Routes
 app.use('/api/items', itemRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/auth', authRoutes);
 
-// Serve static assets if in production
-if (process.env.NODE_ENV === 'production') {
-    // Set static folder
-    app.use(express.static('client/build'));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
-}
+const port = process.env.PORT || 5000
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
+
+
+// // Serve static assets if in production
+// if (process.env.NODE_ENV === 'production') {
+//     // Set static folder
+//     app.use(express.static('client/build'));
+
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//     });
+// }
