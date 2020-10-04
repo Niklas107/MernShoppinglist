@@ -1,14 +1,14 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import path from 'path';
-import bodyParser from 'body-parser';
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const bodyParser = require('body-parser');
+
 
 // routes
-import items from './routes/api/items';
+const items = require('./routes/api/items');
 
 const app = express();
 
-const items = require('./routes/api/items')
 // Bodyparser Middleware
 app.use(bodyParser.json());
 

@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import auth from '../../middleware/auth';
+const express = require('express')
+const router = express.Router();
 // Item Model
-import Item from '../../models/Item';
+const Item = require('../../models/Item');
 
-const router = Router();
+
 
 // /**
 //  * @route   GET api/items
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 //  * @access  Private
 //  */
 
-router.post('/', auth, async (req, res) => {
+router.post('/', (req, res) => {
     const newItem = new Item({
         name: req.body.name
     });
@@ -43,4 +43,4 @@ router.delete('/:id', (req, res) => {
         .catch(err => res.status(404).json({ success: false }))
 });
 
-export default router;
+module.exports = router;
