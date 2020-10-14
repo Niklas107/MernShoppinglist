@@ -1,11 +1,9 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const auth = require('../../middleware/auth')
+const auth = require('../../middleware/auth');
 
 // Item Model
 const Item = require('../../models/Item');
-
-
 
 // /**
 //  * @route   GET api/items
@@ -14,9 +12,9 @@ const Item = require('../../models/Item');
 //  */
 
 router.get('/', (req, res) => {
-    Item.find()
-        .sort({ date: -1 })
-        .then(items => res.json(items));
+  Item.find()
+    .sort({ date: -1 })
+    .then((items) => res.json(items));
 });
 
 // /**
@@ -26,11 +24,13 @@ router.get('/', (req, res) => {
 //  */
 
 router.post('/', auth, (req, res) => {
-    const newItem = new Item({
-        name: req.body.name
-    });
+  console.log(req.body);
+  const newItem = new Item({
+    name: req.body.name,
+    number: req.body.name,
+  });
 
-    newItem.save().then(item => res.json(item));
+  newItem.save().then((item) => res.json(item));
 });
 
 // /**
@@ -40,9 +40,9 @@ router.post('/', auth, (req, res) => {
 //  */
 
 router.delete('/:id', auth, (req, res) => {
-    Item.findById(req.params.id)
-        .then(item => item.remove().then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }))
+  Item.findById(req.params.id)
+    .then((item) => item.remove().then(() => res.json({ success: true })))
+    .catch((err) => res.status(404).json({ success: false }));
 });
 
 module.exports = router;
