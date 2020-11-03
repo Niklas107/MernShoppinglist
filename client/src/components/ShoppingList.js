@@ -20,6 +20,13 @@ class ShoppingList extends Component {
     this.props.deleteItem(id);
   };
 
+  itemCount(name, number) {
+    if (number < 2) {
+      return name
+    }
+    else return `${name} x ${number}`
+  }
+
   render() {
     const { items } = this.props.item;
     return (
@@ -39,7 +46,7 @@ class ShoppingList extends Component {
                       &times;
                     </Button>
                   ) : null}
-                  {name + ' x' + number}
+                  {this.itemCount(name, number)}
                 </ListGroupItem>
               </CSSTransition>
             ))}

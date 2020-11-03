@@ -56,6 +56,16 @@ class ItemModal extends Component {
   onSubmit = (e) => {
     e.preventDefault();
 
+    // if (this.state.name == '') {
+    //   alert(`Can't have an item count without an item`);
+    //   return
+    // }
+
+    // if (this.state.number == '') {
+    //   console.log(`No item count was selected`);
+    //   return;
+    // }
+
     //Old
     const newItem = {
       name: this.state.name,
@@ -85,8 +95,8 @@ class ItemModal extends Component {
             Add item
           </Button>
         ) : (
-          <h4 className="mb-3 ml-4">Please log in to manage items</h4>
-        )}
+            <h4 className="mb-3 ml-4">Please log in to manage items</h4>
+          )}
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add To Shopping List</ModalHeader>

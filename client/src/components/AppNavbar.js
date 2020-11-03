@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterModal';
 import Logout from './auth/Logout';
 import LoginModal from './auth/LoginModal';
+import AltLoginModal from './auth/AltLoginModal';
 import Blog from './Blog';
 
 class AppNavbar extends Component {
@@ -52,6 +53,9 @@ class AppNavbar extends Component {
         <NavItem>
           <LoginModal />
         </NavItem>
+        {/* <NavItem>
+          <AltLoginModal />
+        </NavItem> */}
       </Fragment>
     );
 
