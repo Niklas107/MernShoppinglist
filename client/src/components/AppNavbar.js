@@ -15,6 +15,7 @@ import Logout from './auth/Logout';
 import LoginModal from './auth/LoginModal';
 import AltLoginModal from './auth/AltLoginModal';
 import Blog from './Blog';
+import UserProfile from './UserProfile';
 
 class AppNavbar extends Component {
   state = {
@@ -38,6 +39,9 @@ class AppNavbar extends Component {
           <span className="navbar-text mr-3">
             <strong>{user ? `Welcome ${user.name}` : ''}</strong>
           </span>
+        </NavItem>
+        <NavItem>
+          <UserProfile />
         </NavItem>
         <NavItem>
           <Logout />
