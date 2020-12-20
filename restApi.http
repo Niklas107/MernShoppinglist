@@ -1,0 +1,95 @@
+GET https://localhost:5000
+
+### Frontpage
+
+
+
+GET https://localhost:5000/accounts
+
+### GET all accounts
+
+POST https://localhost:5000/accounts
+Content-Type: application/json
+
+{
+  "client_id": "id from a client",
+  "balance": 0,
+  "alias": "idk"
+}
+
+### POST account 
+
+PUT https://localhost:5000/accounts/transfer
+Content-Type: application/json
+
+{
+    "fromAccount": "5fa5894adce8515230400f4f",
+    "toAccount": "5fa5893adce8515230400f4e",
+    "amount": 500
+}
+
+### Transfer between two accounts
+
+
+
+GET https://localhost:5000/accounts/5fce4aeee07ecbdfb4c9b3b9
+
+### Get specific account by ID
+
+PUT https://localhost:5000/accounts/5fa5893adce8515230400f4e
+Content-Type: application/json
+
+{
+    "balance": 1000
+}
+
+### Udpate balance
+
+DELETE https://localhost:5000/accounts/5fce4bfc0586bf1e7caffffc
+### Delete account
+
+GET https://localhost:5000/accounts/5fa5893adce8515230400f4e/balance
+
+### GET Balance
+
+
+
+
+GET https://localhost:5000/clients
+
+### Get all clients
+
+POST https://localhost:5000/clients
+Content-Type: application/json
+
+{
+  "firstname": "name",
+  "lastname": "surname",
+  "streetAddress": "street",
+  "city": "Copenhagen"
+}
+
+### POST new client
+
+
+
+
+GET https://localhost:5000/clients/5fa588acdce8515230400f4b
+
+### Get specific client by ID
+
+PUT https://localhost:5000/clients/5fa588acdce8515230400f4b
+Content-Type: application/json
+
+{
+  "firstname": "Niklas",
+  "lastname": "Lykke-Bøndergaard",
+  "streetAddress": "Strandlodsvej",
+  "city": "Copenhagen"
+}
+
+### Update client
+
+DELETE https://localhost:5000/clients/5fce4bfb0586bf1e7caffffa
+
+### Delete client

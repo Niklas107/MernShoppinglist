@@ -12,21 +12,20 @@ import {
 
 
 
+
+
+
 class AltLoginModal extends Component {
-
-    state = {
-        modal: false,
-    };
-
     App() {
         const [phrase, setPhrase] = useState('');
+
         if (phrase === 'open sesame') {
             alert('You may pass!');
         }
     }
-
-    // useEffect(( => { if(input === "open sesame") { } }, [input]));
-    // https://codesandbox.io/s/n15z4oq24l?file=/src/index.js:416-457
+    state = {
+        modal: false,
+    };
 
     toggle = () => {
         this.setState({ modal: !this.state.modal });
@@ -37,7 +36,6 @@ class AltLoginModal extends Component {
         //Close modal
         this.toggle();
     };
-
     render() {
         return (
             <div>
@@ -47,12 +45,12 @@ class AltLoginModal extends Component {
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
-                                <div>
+                                <div className="App">
                                     <h2>What's the secret phrase?</h2>
                                     <Input
                                         type="text"
-                                        value={this.state.phrase}
-                                        onChange={e => this.state.setPhrase(e.target.value)}
+                                        value={this.phrase}
+                                        onChange={e => this.setPhrase(e.target.value)}
                                         placeholder="Super duper secret"
                                     />
                                     <p>
@@ -72,6 +70,9 @@ class AltLoginModal extends Component {
         );
     }
 }
+
+
+
 
 
 export default AltLoginModal;

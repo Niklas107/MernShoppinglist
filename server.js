@@ -26,6 +26,19 @@ mongoose
 app.use('/api/items', require('./routes/api/items'));
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/todos', require('./routes/api/todos'));
+
+//Helps with CORS issues xx
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
+
+// app.use((err, req, res, next) => {
+//   console.log(err);
+//   next();
+// });
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
