@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -7,15 +7,16 @@ import {
   Nav,
   Container,
   NavItem,
+
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import RegisterModal from './auth/RegisterModal';
 import Logout from './auth/Logout';
 import LoginModal from './auth/LoginModal';
-import AltLoginModal from './auth/AltLoginModal';
-import Blog from './Blog';
 import UserProfile from './UserProfile';
+// import AltLoginModal from './auth/AltLoginModal'
 
 class AppNavbar extends Component {
   state = {
@@ -30,6 +31,9 @@ class AppNavbar extends Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
+  // const[dropdownOpen, setDropdownOpen] = useState(false);
+  // dropdownToggle = () => setDropdownOpen(prevState => !prevState);
+
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
@@ -42,7 +46,27 @@ class AppNavbar extends Component {
         </NavItem>
         <NavItem>
           <UserProfile />
+        </NavItem>&nbsp;
+        <NavItem>
+          <Link
+            to="/shopping" className="btn btn-secondary" >Shopping</Link>&nbsp;
         </NavItem>
+        <NavItem>
+          <Link to="/about" className="btn btn-secondary">About</Link>&nbsp;
+        </NavItem>
+
+        {/* <NavItem>
+          <Dropdown isOpen={dropdownOpen} toggle={dropdownToggle}>
+            <DropdownToggle caret>
+              Other pages
+            </DropdownToggle>
+          <DropdownMenu>
+              <DropdownItem><NavLink to="/">Home</NavLink><DropdownItem />
+              <DropdownItem><NavLink to="/about">About</NavLink></DropdownItem>
+              <DropdownItem><NavLink to="/shopping">Shopping</NavLink></DropdownItem>
+          </DropdownMenu>
+            </Dropdown>
+        </NavItem> */}
         <NavItem>
           <Logout />
         </NavItem>
@@ -54,12 +78,15 @@ class AppNavbar extends Component {
         <NavItem>
           <RegisterModal />
         </NavItem>
-        <NavItem>
+        <NavItem >
           <LoginModal />
         </NavItem>
         {/* <NavItem>
           <AltLoginModal />
         </NavItem> */}
+        <NavItem>
+          <Link to="/about" className="btn btn-secondary">About</Link>&nbsp;
+        </NavItem>
       </Fragment>
     );
 
@@ -67,7 +94,7 @@ class AppNavbar extends Component {
       <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">ShoppingList</NavbarBrand>
+            <NavbarBrand href="/">MERN APP</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>

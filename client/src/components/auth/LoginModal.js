@@ -66,12 +66,12 @@ class LoginModal extends Component {
     render() {
         return (
             <div>
-                <NavLink onClick={this.toggle} href="#">Login</NavLink>
+                <NavLink onClick={this.toggle} href="#" >Login</NavLink>
                 <Modal
                     isOpen={this.state.modal}
                     toggle={this.toggle}
                 >
-                    <ModalHeader toggle={this.toggle}>Login</ModalHeader>
+                    <ModalHeader toggle={this.toggle} >Login</ModalHeader>
                     <ModalBody>
                         {this.state.msg ? (<Alert color="danger">{this.state.msg}</Alert>) : null}
                         <Form onSubmit={this.onSubmit}>

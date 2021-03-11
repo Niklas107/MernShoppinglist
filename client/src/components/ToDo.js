@@ -118,14 +118,15 @@ class TodoApp extends React.Component {
     }
 }
 
-module.exports = {
-    TodoApp: TodoApp,
-    TodoListItem: TodoListItem,
-    TodoList: TodoList,
-    TodoForm: TodoForm,
-    TodoHeader: TodoHeader,
-}
+// module.exports = {
+//     TodoApp: TodoApp,
+//     TodoListItem: TodoListItem,
+//     TodoList: TodoList,
+//     TodoForm: TodoForm,
+//     TodoHeader: TodoHeader,
+// }
 
+export { TodoApp, TodoListItem, TodoList, TodoForm, TodoHeader }
 
 
 // ReactDOM.render(<TodoApp initItems={todoItems} />, document.getElementById('app'));

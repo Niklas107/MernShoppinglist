@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Collapse, Card, CardBody } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Collapse, Card, CardBody } from 'reactstrap';
 import '../../src/App.css'
 import avatar from "../images/avatar.jpg"
 
@@ -15,7 +15,7 @@ const user = {
 
 const UserProfile = (props) => {
 
-    const url = `linkedin.com/in/${user.linkedinUsername}`
+    const url = `https:linkedin.com/in/${user.linkedinUsername}`
     const { className } = props;
 
     const [modal, setModal] = useState(false);
@@ -138,9 +138,6 @@ const UserProfile = (props) => {
 
 
                     </ModalBody>
-                    <ModalFooter>
-                        <div><a>Something cool</a></div>
-                    </ModalFooter>
                 </div>
             </Modal>
         </div>
